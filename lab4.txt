@@ -1,1 +1,10 @@
 Answer written questions here:
+1. As the iteration threshold is increased, the amount of entries that are not apart of the set that will run for longer is increased, even though they will eventually
+diverge at some point. Starting at a lower number reduces the amount of calls made as many of these will diverge at small numbers like 2 since they will diverge eventually. 
+
+2. To increase efficiency of rendering with higher iteration counts, you could run an algorithm that renders every other pixel first, then for those left
+unrendered, look at its surrounding neighbour cells. The more neighbour cells that are either escaping or within the current bounds can help predict the
+current cell. Doing the neighbour checks simultaneously on different machines can speed this process up as well. 
+
+3. Breaking each pixel down into 4 subpixels and averaging the colour returned would help create a clearer image with less obscure jagged escape times,
+smoothing out the plotted points, however this would likely up the performance requirements as more checks would need to be run for the size of the image being rendered. 
